@@ -1,5 +1,5 @@
 import {dirtImg,logImg,grassImg,glassImg,woodImg} from './images' 
-import {TextureLoader} from 'three';
+import {TextureLoader, NearestFilter, RepeatWrapping} from 'three';
 
 const dirtTexture = new TextureLoader().load(dirtImg);
 const logTexture = new TextureLoader().load(logImg);
@@ -9,6 +9,18 @@ const woodTexture = new TextureLoader().load(woodImg);
 
 // separate texture for ground
 const groundTexture = new TextureLoader().load(grassImg);
+
+dirtTexture.magFilter= NearestFilter
+logTexture.magFilter = NearestFilter
+grassTexture.magFilter = NearestFilter
+glassTexture.magFilter = NearestFilter
+woodTexture.magFilter = NearestFilter
+groundTexture.magFilter = NearestFilter
+
+groundTexture.wrapS = RepeatWrapping
+groundTexture.wrapT = RepeatWrapping
+groundTexture.repeat.set(100,100)
+
 
 export {
     dirtTexture,
