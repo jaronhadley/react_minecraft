@@ -100,10 +100,10 @@ function App() {
                 path="/profiles/:username" 
                 element={<Profile />}
               />
-              <Route path="/worlds/" 
+              {/* <Route path="/worlds/" 
                 element={<WorldList />}
-              />
-               <Route path="/worlds/:worldId" 
+              /> */}
+               <Route path="/worlds" 
                 element={<Craft />}
               />
             

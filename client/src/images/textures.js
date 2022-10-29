@@ -5,6 +5,7 @@ const dirtTexture = new TextureLoader().load(dirtImg);
 const logTexture = new TextureLoader().load(logImg);
 const grassTexture = new TextureLoader().load(grassImg);
 const glassTexture = new TextureLoader().load(glassImg);
+const woodTexture = new TextureLoader().load(woodImg);
 const redBrickTexture = new TextureLoader().load(redBrickImg);
 const goldTexture = new TextureLoader().load(goldImg);
 const daisyTexture = new TextureLoader().load(daisyImg);
