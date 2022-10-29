@@ -16,6 +16,9 @@ const resolves = {
         }
         throw new AuthenticationError('You need to be logged in!');
         },
+        save: async(parent, context) => {
+            return Save.findOne({_id: context.save._id})
+        }
     },
 
     Mutation: {
@@ -41,5 +44,11 @@ const resolves = {
 
             return { token, user };
         },
+        addSave: async (parent, {title, cubeArray}) => {
+            const updateDate = new Date();
+            const save = await Save.create({title, cubeArray, updateDate})
+
+            return save
+        }
     }
 }

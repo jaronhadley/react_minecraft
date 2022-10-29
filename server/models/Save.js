@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const saveSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String
     },
     cubeArray: {
