@@ -8,10 +8,19 @@ const typeDefs = gql`
     password: String
     saves: [Save]!
   }
-    type Auth {
-    token: ID!
-    user: User
+
+  type Auth {
+  token: ID!
+  user: User
   }
+
+  type Save {
+    _id: ID
+    cubeArray: [Int]
+    lastUpdated: String
+    creationDate: String
+  }
+
   type Query {
     users: [User]
     user(username: String!): User
@@ -21,5 +30,8 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+
   }
-`
+`;
+
+module.exports = typeDefs
