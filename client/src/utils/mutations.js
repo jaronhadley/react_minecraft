@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+const { gql } = require('apollo-server-express');
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -23,13 +23,11 @@ export const ADD_USER = gql`
     }
   }
 `;
-export const ADD_WORLD = gql`
-  mutation addWorld($worldText: String!) {
-    addWorld(worldText: $worldText) {
-      _id
-      worldText
-      worldAuthor
-      createdAt
+
+export const ADD_SAVE = gql`
+    mutation addSave($title: String!, cubeArray: [Int]!) {
+        addSave(title: $title, cubeArray: $cubeArray) {
+        }
     }
-  }
 `;
+

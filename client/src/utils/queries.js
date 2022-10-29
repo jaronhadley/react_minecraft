@@ -35,3 +35,18 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+
+
+
+
+export const QUERY_SAVE = gql`
+    query getSave($saveID: ID) {
+        save(id: $saveID) {
+            title
+            cubeArray
+            lastUpdated
+            creationDate
+        }
+    }
+`;
