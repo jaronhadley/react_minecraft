@@ -25,7 +25,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_SAVE = gql`
-    mutation addSave($title: String!, cubeArray: [Int]!) {
+    mutation addSave($title: String!, $cubeArray: [Int]!) {
         addSave(title: $title, cubeArray: $cubeArray) {
             id
             title

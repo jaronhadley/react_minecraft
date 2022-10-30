@@ -17,7 +17,7 @@ const resolves = {
         throw new AuthenticationError('You need to be logged in!');
         },
         save: async(parent, context) => {
-            return Save.findOne({_id: context.save._id})
+            return Save.findOne({_id: context._id})
         }
     },
 
