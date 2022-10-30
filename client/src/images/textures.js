@@ -1,4 +1,4 @@
-import {dirtImg,logImg,grassImg,glassImg,woodImg} from './images' 
+import {dirtImg,logImg,grassImg,glassImg,woodImg,redBrickImg,goldImg,daisyImg,netheriteImg,oakSaplingImg,sandstoneImg,snowImg,} from './images' 
 import {TextureLoader, NearestFilter, RepeatWrapping} from 'three';
 
 const dirtTexture = new TextureLoader().load(dirtImg);
@@ -6,6 +6,14 @@ const logTexture = new TextureLoader().load(logImg);
 const grassTexture = new TextureLoader().load(grassImg);
 const glassTexture = new TextureLoader().load(glassImg);
 const woodTexture = new TextureLoader().load(woodImg);
+const redBrickTexture = new TextureLoader().load(redBrickImg);
+const goldTexture = new TextureLoader().load(goldImg);
+const daisyTexture = new TextureLoader().load(daisyImg);
+const netheriteTexture = new TextureLoader().load(netheriteImg);
+const oakSaplingTexture = new TextureLoader().load(oakSaplingImg);
+const sandstoneTexture = new TextureLoader().load(sandstoneImg);
+const snowTexture = new TextureLoader().load(snowImg);
+
 
 // separate texture for ground
 const groundTexture = new TextureLoader().load(grassImg);
