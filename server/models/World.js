@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const saveSchema = new mongoose.Schema({
+const worldSchema = new mongoose.Schema({
     title: {
         type: String
     },
@@ -18,6 +18,6 @@ const saveSchema = new mongoose.Schema({
     }
 })
 
-const Save = mongoose.model('Save', saveSchema);
+const World = mongoose.model('World', worldSchema);
 
-module.exports = Save;
+module.exports = World;
