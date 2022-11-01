@@ -26,6 +26,7 @@ const typeDefs = gql`
     user(username: String!): User
     me: User
     world: World
+    worlds: World
   }
 
   type Mutation {
