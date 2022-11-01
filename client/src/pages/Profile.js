@@ -16,6 +16,7 @@ const Profile = () => {
     variables: { username: userParam },
   });
 
+  console.log(userParam)
   const user = data?.me || data?.user || {};
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {

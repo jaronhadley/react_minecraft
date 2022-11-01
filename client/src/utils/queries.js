@@ -26,12 +26,6 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      worlds {
-        _id
-        worldText
-        worldAuthor
-        createdAt
-      }
     }
   }
 `;
