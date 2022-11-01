@@ -1,4 +1,4 @@
 const User = require('./User');
-const Save = require('./Save')
+const World = require('./World')
 
-module.exports = {User, Save};
+module.exports = {User, World};

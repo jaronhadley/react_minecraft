@@ -18,6 +18,6 @@ const worldSchema = new mongoose.Schema({
     }
 })
 
-const World = mongoose.model('World', saveSchema);
+const World = mongoose.model('World', worldSchema);
 
 module.exports = World;
