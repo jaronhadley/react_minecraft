@@ -19,9 +19,9 @@ const Login = (props) => {
     });
   };
 
-  // submit form
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+  // // submit form
+   const handleFormSubmit = async (event) => {
+     event.preventDefault();
     console.log(formState);
     try {
       const { data } = await login({
@@ -38,7 +38,7 @@ const Login = (props) => {
       email: '',
       password: '',
     });
-  };
+   };
 
   return (
     <main className="flex-row justify-center mb-4">
