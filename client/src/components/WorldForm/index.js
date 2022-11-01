@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+// import { useMutation } from '@apollo/client';
 
-import {  ADD_WORLD } from '../../utils/mutations';
-import { QUERY_WORLDS, QUERY_ME } from '../../utils/queries';
+// import {  ADD_WORLD } from '../../utils/mutations';
+// import { QUERY_WORLDS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
@@ -12,44 +12,44 @@ const WorldForm = () => {
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addWorld, { error }] = useMutation(ADD_WORLD, {
-    update(cache, { data: { addWorld } }) {
-      try {
-        const { worlds } = cache.readQuery({ query: QUERY_WORLDS });
+//   const [addWorld, { error }] = useMutation(ADD_WORLD, {
+//     update(cache, { data: { addWorld } }) {
+//       try {
+//         const { worlds } = cache.readQuery({ query: QUERY_WORLDS });
 
-        cache.writeQuery({
-          query: QUERY_WORLDS,
-          data: { worlds: [addWorld, ...worlds] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
+//         cache.writeQuery({
+//           query: QUERY_WORLDS,
+//           data: { worlds: [addWorld, ...worlds] },
+//         });
+//       } catch (e) {
+//         console.error(e);
+//       }
 
-      // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, worlds: [...me.worlds, addWorld] } },
-      });
-    },
-  });
+//       // update me object's cache
+//       const { me } = cache.readQuery({ query: QUERY_ME });
+//       cache.writeQuery({
+//         query: QUERY_ME,
+//         data: { me: { ...me, worlds: [...me.worlds, addWorld] } },
+//       });
+//     },
+//   });
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
 
-    try {
-      const { data } = await addWorld({
-        variables: {
-          worldText,
-          worldAuthor: Auth.getProfile().data.username,
-        },
-      });
+  //   try {
+  //     const { data } = await addWorld({
+  //       variables: {
+  //         worldText,
+  //         worldAuthor: Auth.getProfile().data.username,
+  //       },
+  //     });
 
-      setWorldText('');
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //     setWorldText('');
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -68,14 +68,14 @@ const WorldForm = () => {
         <>
           <p
             className={`m-0 ${
-              characterCount === 30 || error ? 'text-danger' : ''
+              characterCount === 30 ? 'text-danger' : ''
             }`}
           >
             Character Count: {characterCount}/30
           </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
-            onSubmit={handleFormSubmit}
+            // onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
               <textarea
@@ -93,9 +93,8 @@ const WorldForm = () => {
                 Add World
               </button>
             </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
+            {(
+              <div className="col-12 my-3 bg-danger text-white p-3">error went here
               </div>
             )}
           </form>
