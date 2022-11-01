@@ -45,7 +45,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Header from './components/Header';
-import WorldList from './components/WorldList';
+import SaveList from './components/SaveList';
 import Craft from './pages/Craft';
 
 // Construct our main GraphQL API endpoint
@@ -100,8 +100,8 @@ function App() {
                 path="/profiles/:username" 
                 element={<Profile />}
               />
-              {/* <Route path="/worlds/" 
-                element={<WorldList />}
+              {/* <Route path="/saves/" 
+                element={<SaveList />}
               /> */}
                <Route path="/worlds" 
                 element={<Craft />}

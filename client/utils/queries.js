@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+import { gql } from '@apollo/client'
 
 export const QUERY_USER = gql`
     query getUser($userID: ID) {
@@ -34,6 +34,17 @@ export const QUERY_ME = gql`
 export const QUERY_SAVE = gql`
     query getSave($saveID: ID) {
         save(id: $saveID) {
+            title
+            cubeArray
+            lastUpdated
+            creationDate
+        }
+    }
+`;
+
+export const QUERY_SAVES = gql`
+    query getSaves() {
+        save {
             title
             cubeArray
             lastUpdated

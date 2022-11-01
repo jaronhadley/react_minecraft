@@ -1,47 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const WorldList = ({
-  worlds,
+const SaveList = ({
+  saves,
   title,
   showTitle = true,
   showUsername = true,
 }) => {
-  if (!worlds.length) {
-    return <h3>No Worlds Yet</h3>;
+  if (!saves.length) {
+    return <h3>No Saves Yet</h3>;
   }
 
   return (
     <div>
       {showTitle && <h3>{title}</h3>}
-      {worlds &&
-        worlds.map((world) => (
-          <div key={world._id} className="card mb-3">
+      {saves &&
+        saves.map((save) => (
+          <div key={save._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/profiles/${world.worldAuthor}`}
+                  to={`/profiles/${save.saveAuthor}`}
                 >
-                  {world.worldAuthor} <br />
+                  {save.saveAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    created this world on {world.createdAt}
+                    created this save on {save.createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
                   <span style={{ fontSize: '1rem' }}>
-                    You created this on {world.createdAt}
+                    You created this on {save.createdAt}
                   </span>
                 </>
               )}
             </h4>
             <div className="card-body bg-light p-2">
-              <p>{world.worldText}</p>
+              <p>{save.saveText}</p>
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
-              to={`/thoughts/${world._id}`}
+              to={`/thoughts/${save._id}`}
             >
               Jump into this World.
             </Link>
@@ -51,4 +51,4 @@ const WorldList = ({
   );
 };
 
-export default WorldList;
+export default SaveList;

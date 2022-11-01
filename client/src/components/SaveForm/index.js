@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import {  ADD_WORLD } from '../../utils/mutations';
-import { QUERY_WORLDS, QUERY_ME } from '../../utils/queries';
+import {  ADD_SAVE } from '../../utils/mutations';
+import { QUERY_ME, QUERY_SAVES } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const WorldForm = () => {
-  const [worldText, setWorldText] = useState('');
+const SaveForm = () => {
+  const [saveText, setSaveText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addWorld, { error }] = useMutation(ADD_WORLD, {
-    update(cache, { data: { addWorld } }) {
+  const [addSave, { error }] = useMutation(ADD_SAVE, {
+    update(cache, { data: { addSave } }) {
       try {
-        const { worlds } = cache.readQuery({ query: QUERY_WORLDS });
+        const { saves } = cache.readQuery({ query: QUERY_SAVES });
 
         cache.writeQuery({
-          query: QUERY_WORLDS,
-          data: { worlds: [addWorld, ...worlds] },
+          query: QUERY_SAVES,
+          data: { saves: [addSave, ...saves] },
         });
       } catch (e) {
         console.error(e);
@@ -29,7 +29,7 @@ const WorldForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, worlds: [...me.worlds, addWorld] } },
+        data: { me: { ...me, saves: [...me.saves, addSave] } },
       });
     },
   });
@@ -38,14 +38,14 @@ const WorldForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addWorld({
+      const { data } = await addSave({
         variables: {
-          worldText,
-          worldAuthor: Auth.getProfile().data.username,
+          saveText,
+          saveAuthor: Auth.getProfile().data.username,
         },
       });
 
-      setWorldText('');
+      setSaveText('');
     } catch (err) {
       console.error(err);
     }
@@ -54,15 +54,15 @@ const WorldForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'worldText' && value.length <= 30) {
-      setWorldText(value);
+    if (name === 'saveText' && value.length <= 30) {
+      setSaveText(value);
       setCharacterCount(value.length);
     }
   };
 
   return (
     <div>
-      <h3>Want to add a new World?</h3>
+      <h3>Want to create a new Save?</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -79,9 +79,9 @@ const WorldForm = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="worldText"
-                placeholder="Add a new world..."
-                value={worldText}
+                name="saveText"
+                placeholder="Add a new save..."
+                value={saveText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -90,7 +90,7 @@ const WorldForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add World
+                Create Save
               </button>
             </div>
             {error && (
@@ -102,7 +102,7 @@ const WorldForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to add worlds. Please{' '}
+          You need to be logged in to add saves. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
@@ -110,4 +110,4 @@ const WorldForm = () => {
   );
 };
 
-export  default WorldForm();
+export  default SaveForm();

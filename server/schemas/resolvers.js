@@ -18,6 +18,9 @@ const resolves = {
         },
         save: async(parent, context) => {
             return Save.findOne({_id: context._id})
+        },
+        saves: async() => {
+            return Save.find();
         }
     },
 

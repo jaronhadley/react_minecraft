@@ -1,14 +1,14 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import WorldList from '../components/WorldList/index';
-import WorldForm from '../components/WorldForm/index';
+import SaveList from '../components/SaveList/index';
+import SaveForm from '../components/SaveForm/index';
 
-import { QUERY_WORLDS } from '../utils/queries';
+import { QUERY_SAVES } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_WORLDS);
-  const worlds = data?.worlds || [];
+  const { loading, data } = useQuery(QUERY_SAVES);
+  const saves = data?.saves || [];
 
   return (
     <main>
@@ -17,14 +17,14 @@ const Home = () => {
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
         >
-          <WorldForm />
+          <SaveForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <WorldList
-              worlds={worlds}
+            <SaveList
+              saves={saves}
               title="Your Worlds"
             />
           )}
