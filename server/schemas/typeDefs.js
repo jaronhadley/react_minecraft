@@ -6,7 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    saves: [Save]!
+    worlds: [World]!
   }
 
   type Auth {
@@ -14,7 +14,7 @@ const typeDefs = gql`
   user: User
   }
 
-  type Save {
+  type World {
     _id: ID
     cubeArray: [Int]
     lastUpdated: String
@@ -25,13 +25,13 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     me: User
-    save: Save
+    world: World
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addSave(title: String, cubeArray: [Int]): Save
+    addWorld(title: String, cubeArray: [Int]): World
   }
 `;
 

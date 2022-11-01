@@ -1,23 +1,26 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Save } = require('../models');
+const { User, World } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolves = {
     Query: {
         users: async () => {
-            return User.find().populate('saves');
+            return User.find().populate('worlds');
           },
         user: async (parent, { username }) => {
-        return User.findOne({ username }).populate('saves');
+        return User.findOne({ username }).populate('worlds');
         },
         me: async (parent, context) => {
         if (context.user) {
-            return User.findOne({ _id: context.user._id }).populate('saves');
+            return User.findOne({ _id: context.user._id }).populate('worlds');
         }
         throw new AuthenticationError('You need to be logged in!');
         },
-        save: async(parent, context) => {
-            return Save.findOne({_id: context._id})
+        world: async(parent, context) => {
+            return World.findOne({_id: context._id})
+        },
+        worlds: async(parent, context) => {
+            return World.find();
         }
     },
 
@@ -44,11 +47,11 @@ const resolves = {
 
             return { token, user };
         },
-        addSave: async (parent, {title, cubeArray}) => {
+        addWorld: async (parent, {title, cubeArray}) => {
             const updateDate = new Date();
-            const save = await Save.create({title, cubeArray, updateDate})
+            const world = await World.create({title, cubeArray, updateDate})
 
-            return save
+            return world
         }
     }
 }

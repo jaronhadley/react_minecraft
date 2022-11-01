@@ -24,9 +24,9 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_SAVE = gql`
-    mutation addSave($title: String!, cubeArray: [Int]!) {
-        addSave(title: $title, cubeArray: $cubeArray) {
+export const ADD_WORLD = gql`
+    mutation addWorld($title: String!, cubeArray: [Int]!) {
+        addWorld(title: $title, cubeArray: $cubeArray) {
         }
     }
 `;
