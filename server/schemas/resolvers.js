@@ -2,7 +2,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Save } = require('../models');
 const { signToken } = require('../utils/auth');
 
-const resolves = {
+const resolvers = {
     Query: {
         users: async () => {
             return User.find().populate('saves');
@@ -51,4 +51,5 @@ const resolves = {
             return save
         }
     }
-}
+};
+module.exports = resolvers;
