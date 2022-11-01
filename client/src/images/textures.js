@@ -1,4 +1,4 @@
-import {dirtImg,logImg,grassImg,glassImg,woodImg,redBrickImg,goldImg,daisyImg,netheriteImg,oakSaplingImg,sandstoneImg,snowImg,} from './images' 
+import {dirtImg,logImg,grassImg,glassImg,woodImg,redBrickImg,goldImg,daisyImg,netheriteImg,oakSaplingImg,sandstoneImg,snowImg,steveImg} from './images' 
 import {TextureLoader, NearestFilter, RepeatWrapping} from 'three';
 
 const dirtTexture = new TextureLoader().load(dirtImg);
@@ -13,6 +13,8 @@ const netheriteTexture = new TextureLoader().load(netheriteImg);
 const oakSaplingTexture = new TextureLoader().load(oakSaplingImg);
 const sandstoneTexture = new TextureLoader().load(sandstoneImg);
 const snowTexture = new TextureLoader().load(snowImg);
+const steveTexture = new TextureLoader().load(steveImg);
+
 
 
 // separate texture for ground
@@ -24,6 +26,14 @@ grassTexture.magFilter = NearestFilter
 glassTexture.magFilter = NearestFilter
 woodTexture.magFilter = NearestFilter
 groundTexture.magFilter = NearestFilter
+redBrickTexture.magFilter = NearestFilter
+goldTexture.magFilter = NearestFilter
+daisyTexture.magFilter = NearestFilter
+netheriteTexture.magFilter = NearestFilter
+oakSaplingTexture.magFilter = NearestFilter
+sandstoneTexture.magFilter = NearestFilter
+snowTexture.magFilter = NearestFilter
+steveTexture.magFilter = NearestFilter
 
 groundTexture.wrapS = RepeatWrapping
 groundTexture.wrapT = RepeatWrapping
@@ -37,4 +47,12 @@ export {
     glassTexture,
     woodTexture,
     groundTexture,
+    redBrickTexture,
+    daisyTexture,
+    netheriteTexture,
+    oakSaplingTexture,
+    sandstoneTexture,
+    snowTexture,
+    goldTexture,
+    steveTexture,
 }
