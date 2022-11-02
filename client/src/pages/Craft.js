@@ -7,10 +7,14 @@ import {FPV} from '../components/FPV'
 import {Cubes} from '../components/Cubes'
 import { TextureSelector } from '../components/TextureSelector';
 import { Menu } from '../components/Menu';
+import { Link } from 'react-router-dom';
 
+import Auth from '../utils/auth';
 
 function Craft() {
   return (
+    <>
+    {Auth.loggedIn() ? (
     <>
       <Canvas>
         <Sky sunPosition={[100,100,20]} />
@@ -25,6 +29,13 @@ function Craft() {
       <div className='absolute centered cursor'>+</div>
       <TextureSelector />
       <Menu />
+    </>
+      ) : (
+        <p>
+          You need to be logged in to add worlds. Please{' '}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        </p>
+      )}
     </>
   );
 }
