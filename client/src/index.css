@@ -172,3 +172,7 @@ h4{
   margin-left: 1.1rem;
   color: black;
 }
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
+}

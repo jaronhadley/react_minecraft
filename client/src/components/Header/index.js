@@ -12,7 +12,9 @@ const Header = () => {
     <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
       <div className="flex-row justify-space-between-lg justify-center align-center">
         <div>
-            <h1 className="m-0">Pixel Block Party</h1>
+              <Link className='text-link' id='home' to="/">
+                <h1 className="m-0">Pixel Block Party</h1>
+              </Link>
         </div>
         <div>
           {Auth.loggedIn() ? (
