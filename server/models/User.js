@@ -19,10 +19,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 5,
     },
-    saves: [
+    worlds: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Save',
+            ref: 'World',
         },
     ],
 });
