@@ -12,6 +12,14 @@ function actionByKey(key) {
         Digit3: 'glass',
         Digit4: 'wood',
         Digit5: 'log',
+        Digit6: 'daisy',
+        Digit7: 'redBrick',
+        Digit8: 'netherite',
+        Digit9: 'gold',
+        Digit0: 'sandstone',
+        KeyP: 'snow',
+        KeyO: 'oakSapling',
+        KeyI: 'steve'
     }
     return keyActionMap[key]
 }
@@ -28,6 +36,14 @@ export const useKeyboard = () => {
         glass: false,
         wood: false,
         log: false,
+        daiy: false,
+        redbrick: false,
+        netherite: false,
+        gold: false,
+        sandstone: false,
+        snow: false,
+        oakSapling: false,
+        steve: false
     })
     
     const handleKeyDown = useCallback((e) => {

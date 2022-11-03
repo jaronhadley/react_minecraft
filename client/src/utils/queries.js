@@ -6,7 +6,6 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      
     }
   }
 `;
@@ -14,9 +13,11 @@ export const QUERY_WORLDS = gql`
   query getWorlds {
     worlds {
       _id
-      worldText
-      worldAuthor
-      createdAt
+      title
+      author
+      cubeArray
+      lastUpdated
+      creationDate
     }
   }
 `;
@@ -26,8 +27,10 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      worlds{
+      worlds {
         _id
+        title
+        author
         cubeArray
         lastUpdated
         creationDate
@@ -37,8 +40,9 @@ export const QUERY_ME = gql`
 `;
 export const QUERY_WORLD = gql`
     query getWorld($worldID: ID) {
-        world(id: $worldID) {
+        world(_id: $worldID) {
             title
+            author
             cubeArray
             lastUpdated
             creationDate

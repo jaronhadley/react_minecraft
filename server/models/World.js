@@ -4,6 +4,10 @@ const worldSchema = new mongoose.Schema({
     title: {
         type: String
     },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
     cubeArray: {
         type: Array,
         default: [],
