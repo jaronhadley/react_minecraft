@@ -16,6 +16,7 @@ const typeDefs = gql`
 
   type World {
     _id: ID
+    title: String
     cubeArray: [Int]
     lastUpdated: String
     creationDate: String

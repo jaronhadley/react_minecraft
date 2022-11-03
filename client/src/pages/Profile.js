@@ -3,7 +3,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Header from '../components/Header';
 //import WorldForm from '../components/WorldForm';
-//import WorldList from '../components/WorldList';
+import WorldList from '../components/WorldList';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -18,7 +18,7 @@ const Profile = () => {
 
   
   const user = data?.me || data?.user || {};
-  //console.log(user)
+  console.log(user)
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;

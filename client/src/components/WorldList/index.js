@@ -37,7 +37,7 @@ const WorldList = ({
               )}
             </h4>
             <div className="card-body bg-light p-2">
-              <p>{world.worldText}</p>
+              <p>{world._id}</p>
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
