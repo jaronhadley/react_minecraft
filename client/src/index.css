@@ -24,6 +24,7 @@ body {
   overflow: hidden;
   overscroll-behavior-y: none;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+ 
   font-size: 40px;
   
 }
@@ -64,4 +65,110 @@ body {
 .menu {
   top: 0px;
   left: 10px;
+}
+header{
+ display: flex;
+ justify-content: space-between;
+ color: #fff;
+
+}
+
+header h1{
+  margin: .5rem;
+  padding: 1rem;
+  font-family: 'Press Start 2P', cursive;
+  color: black;
+  font-size: 65px;
+  
+}
+
+
+header button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  position: absolute;
+   top : 40px;
+  right : 100px;
+}
+header .btn #logout{
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  position: absolute;
+   top : 40px;
+  right : 100px;
+}
+#signup{
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  position: absolute;
+   top : 40px;
+  right : 100px;
+}
+#login{
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  position: absolute;
+   top : 40px;
+  right : 200px;
+}
+#profile-name{
+  margin: 3px;
+  padding: 4px;
+  position: absolute;
+   top : 40px;
+  right : 200px;
+}
+input {
+  padding: .5rem;
+  margin: 1rem;
+}
+form button{
+  
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  
+}
+h4{
+  margin-left: 1.1rem;
+  color: black;
 }
