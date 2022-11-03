@@ -10,6 +10,7 @@ import netheriteImg from '../images/netherite.png';
 import oakSaplingImg from '../images/oak_sapling.png';
 import sandstoneImg from '../images/sandstone.png';
 import snowImg from '../images/snow.png';
+import steveImg from '../images/steve.png'
 
 export {
 	dirtImg,
@@ -24,5 +25,6 @@ export {
 	oakSaplingImg,
 	sandstoneImg,
 	snowImg,
+	steveImg,
 }
 
