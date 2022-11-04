@@ -23,9 +23,13 @@ export const ADD_USER = gql`
   }
 `;
 export const ADD_WORLD = gql`
-    mutation addWorld($title: String, $cubeArray: [CubeInput]) {
-        addWorld(title: $title, cubeArray: $cubeArray) {
-          token
+    mutation addWorld($title: String, $authorId: String, $cubeArray: [CubeInput]) {
+        addWorld(title: $title, authorId: $authorId, cubeArray: $cubeArray) {
+          cubeArray {
+            key
+            pos
+            texture
+          }
         }
     }
 `;

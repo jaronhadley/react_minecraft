@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, World} = require('../models');
 const { signToken } = require('../utils/auth');
+const mongoose = require('mongoose')
 
 const resolvers = {
     Query: {
@@ -47,11 +48,17 @@ const resolvers = {
 
             return { token, user };
         },
-        addWorld: async (parent, {title, cubeArray}) => {
+        addWorld: async (parent, {title, authorId, cubeArray}) => {
             const updateDate = new Date();
-            const world = await World.create({title, cubeArray, updateDate})
+            console.log({vars: title, authorId, cubeArray})
 
-            return world
+            const user = await User.findById(mongoose.Types.ObjectId(authorId))
+            const newWorld = new World({title, cubeArray, user, updateDate})
+            const savedWorld = await newWorld.save();
+            user.worlds.push(savedWorld);
+            user.save();
+            
+            return savedWorld;
         }
     }
 };

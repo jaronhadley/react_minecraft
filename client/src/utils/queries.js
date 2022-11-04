@@ -15,7 +15,11 @@ export const QUERY_WORLDS = gql`
       _id
       title
       # author
-      cubeArray
+      cubeArray {
+          key
+          pos
+          texture
+        }
       lastUpdated
       creationDate
     }
@@ -30,7 +34,11 @@ export const QUERY_ME = gql`
       worlds {
         _id
         title
-        cubeArray
+        cubeArray {
+          key
+          pos
+          texture
+        }
         lastUpdated
         creationDate
       }
