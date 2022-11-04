@@ -2,6 +2,8 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, World} = require('../models');
 const { signToken } = require('../utils/auth');
 
+const setLocalStorage = (key,value) => window.localStorage.setItem(key, JSON.stringify(value))
+
 const resolvers = {
     Query: {
         users: async () => {
@@ -31,7 +33,7 @@ const resolvers = {
             return { token, user };
         },
         login: async (parent, { email, password }) => {
-            const user = await User.findOne({ email });
+            const user = await User.findOne({ email }).populate('worlds');
 
             if (!user) {
                 throw new AuthenticationError('Incorrect email or password');

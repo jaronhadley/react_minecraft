@@ -2,8 +2,7 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Header from '../components/Header';
-//import WorldForm from '../components/WorldForm';
-//import WorldList from '../components/WorldList';
+import { Link } from 'react-router-dom';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -16,9 +15,8 @@ const Profile = () => {
     variables: { username: userParam },
   });
 
-  
   const user = data?.me || data?.user || {};
-  //console.log(user)
+  console.log(user)
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
@@ -39,24 +37,21 @@ const Profile = () => {
       </div>
     );
   }
-
   return (
     <div>
       <Header />
       <div className="flex-row justify-center mb-3">
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+          Hi {user.username}!
         </h2>
-
+        {user.worlds[0] ? (
         <div className="col-12 col-md-10 mb-5">
-          List went here
-        </div>
-        {!userParam && (
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: '1px dotted #1a1a1a' }}
-          >
-            form went here
+          <Link to="/worlds">Jump into your world ({user.worlds[0].title})</Link><br></br>
+          Last Updated: {user.worlds[0].lastUpdated} <br></br>
+          Created: {user.worlds[0].creationDate}
+        </div>) : (
+          <div> No Worlds Created At This Time 
+            <br></br><Link to="/worlds">Create your world! </Link>
           </div>
         )}
       </div>

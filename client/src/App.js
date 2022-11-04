@@ -62,6 +62,9 @@ function App() {
                <Route path="/worlds" 
                 element={<Craft />}
               />
+              <Route path="/world/:worldId" 
+                element={<Craft />}
+              />
             </Routes>
       </Router>
     </ApolloProvider>
