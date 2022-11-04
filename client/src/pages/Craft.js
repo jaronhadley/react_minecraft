@@ -8,6 +8,7 @@ import {Cubes} from '../components/Cubes'
 import { TextureSelector } from '../components/TextureSelector';
 import { Menu } from '../components/Menu';
 import { Link } from 'react-router-dom';
+import { Header } from '../components/Header';
 
 import Auth from '../utils/auth';
 
@@ -17,6 +18,7 @@ function Craft() {
     {Auth.loggedIn() ? (
     <>
       <Canvas>
+        
         <Sky sunPosition={[100,100,20]} />
         <ambientLight intensity={0.5}/>
         <FPV />
@@ -29,6 +31,7 @@ function Craft() {
       <div className='absolute centered cursor'>+</div>
       <TextureSelector />
       <Menu />
+      <Header/>
     </>
       ) : (
         <p>
