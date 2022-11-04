@@ -5,6 +5,8 @@ import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
+const setLocalStorage = (key,value) => window.localStorage.setItem(key, JSON.stringify(value))
+
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
@@ -27,12 +29,12 @@ const Login = (props) => {
       const { data } = await login({
         variables: { ...formState },
       });
-
+      setLocalStorage('lastSave',data.login.user.worlds[0]?.cubeArray || [])
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
-
+    
     // clear form values
     setFormState({
       email: '',
