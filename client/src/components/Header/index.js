@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
 
-const Header = () => {
+export const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -19,7 +19,7 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" id='profile-name' to="/me">
+              <Link className="text-link btn btn-lg btn-info m-2" id='profile-name' to="/me">
                 {Auth.getProfile().data.username}'s profile
               </Link>
               <button className="btn btn-lg btn-light m-2" id='logout' onClick={logout}>

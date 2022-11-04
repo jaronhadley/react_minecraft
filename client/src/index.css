@@ -176,3 +176,33 @@ h4{
   color: inherit;
   text-decoration: inherit;
 }
+.resetButton{
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  position: absolute;
+   top : 40px;
+   left: 100px;
+}
+.saveButton{
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  position: absolute;
+   top : 40px;
+   left: 20px;
+}
