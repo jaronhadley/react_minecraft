@@ -9,16 +9,19 @@ export const Menu = () => {
     const [saveToMongo, {data, loading, error}] = useMutation(ADD_WORLD)
 
     return (<div className="menu absolute">
-        <button 
+        <button className="saveButton"
         onClick={() => {
             const id = auth.getProfile().data._id;
+            const updateTime = new Date();
 
             console.log({results: 'testTitle', id, cubes})
+
             saveToMongo({
                 variables: {
                     title: 'testTitle',
                     authorId: id,
-                    cubeArray: cubes
+                    cubeArray: cubes,
+                    lastUpdated: updateTime,
                 }
             });
         }}

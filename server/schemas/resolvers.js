@@ -50,12 +50,11 @@ const resolvers = {
 
             return { token, user };
         },
-        addWorld: async (parent, {title, authorId, cubeArray}) => {
-            const updateDate = new Date();
-            console.log({vars: title, authorId, cubeArray})
+        addWorld: async (parent, {title, authorId, cubeArray, lastUpdated}) => {
+            console.log({vars: title, authorId, cubeArray, lastUpdated})
 
             const user = await User.findById(mongoose.Types.ObjectId(authorId))
-            const newWorld = new World({title, cubeArray, user, updateDate})
+            const newWorld = new World({title, cubeArray, user, lastUpdated})
             const savedWorld = await newWorld.save();
             user.worlds.push(savedWorld);
             user.save();
