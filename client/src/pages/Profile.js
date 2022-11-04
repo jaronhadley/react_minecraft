@@ -41,17 +41,17 @@ const Profile = () => {
     <div>
       <Header />
       <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5" id='welcome'>
           Hi {user.username}!
         </h2>
         {user.worlds[0] ? (
-        <div className="col-12 col-md-10 mb-5">
+        <div className="col-12 col-md-10 mb-5" id='worlds' >
           <Link to="/worlds">Jump into your world ({user.worlds[0].title})</Link><br></br>
           Last Updated: {user.worlds[0].lastUpdated} <br></br>
           Created: {user.worlds[0].creationDate}
         </div>) : (
-          <div> No Worlds Created At This Time 
-            <br></br><Link to="/worlds">Create your world! </Link>
+          <div id='worlds'> No Worlds Created At This Time 
+            <br></br><br></br><Link className='text-link' to="/worlds">Create your world! </Link>
           </div>
         )}
       </div>
