@@ -25,7 +25,7 @@ export const Menu = () => {
         >
             Save
         </button>
-        <button
+        <button className="resetButton"
         onClick={() => resetWorld()}
         >
             Reset

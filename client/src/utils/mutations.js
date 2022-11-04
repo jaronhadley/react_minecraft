@@ -7,6 +7,16 @@ export const LOGIN_USER = gql`
       user {
         _id
         username
+        email
+        worlds {
+          _id
+          title
+          cubeArray {
+            key
+            pos
+            texture
+          }
+        }
       }
     }
   }
