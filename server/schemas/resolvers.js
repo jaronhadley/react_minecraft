@@ -57,7 +57,7 @@ const resolvers = {
             const user = await User.findById(mongoose.Types.ObjectId(authorId))
             const newWorld = new World({title, cubeArray, user, updateDate})
             const savedWorld = await newWorld.save();
-            user.worlds.push(savedWorld);
+            user.worlds = savedWorld;
             user.save();
             
             return savedWorld;
