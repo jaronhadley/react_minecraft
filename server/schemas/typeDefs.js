@@ -29,7 +29,8 @@ const typeDefs = gql`
   type World {
     _id: ID
     title: String
-    cubeArray: [Cube]
+    author: User
+    cubeArray: [Cube]!
     lastUpdated: String
     creationDate: String
   }
@@ -39,13 +40,13 @@ const typeDefs = gql`
     user(username: String!): User
     me: User
     world: World
-    worlds: World
+    worlds: [World]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addWorld(title: String, cubeArray: [CubeInput]): World
+    addWorld(title: String, authorId: String, cubeArray: [CubeInput]): World
   }
 `;
 
