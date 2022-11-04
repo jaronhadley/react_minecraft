@@ -23,7 +23,7 @@ export const ADD_USER = gql`
   }
 `;
 export const ADD_WORLD = gql`
-    mutation addWorld($title: String!, $cubeArray: [Int]!) {
+    mutation addWorld($title: String, $cubeArray: [CubeInput]) {
         addWorld(title: $title, cubeArray: $cubeArray) {
           token
         }

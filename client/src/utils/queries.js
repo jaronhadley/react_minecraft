@@ -14,7 +14,7 @@ export const QUERY_WORLDS = gql`
     worlds {
       _id
       title
-      author
+      # author
       cubeArray
       lastUpdated
       creationDate
@@ -30,7 +30,6 @@ export const QUERY_ME = gql`
       worlds {
         _id
         title
-        author
         cubeArray
         lastUpdated
         creationDate
@@ -42,8 +41,15 @@ export const QUERY_WORLD = gql`
     query getWorld($worldID: ID) {
         world(_id: $worldID) {
             title
-            author
-            cubeArray
+            author {
+              _id
+              username
+            }
+            cubeArray {
+              key
+              pos
+              texture
+            }
             lastUpdated
             creationDate
         }

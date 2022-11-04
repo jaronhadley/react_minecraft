@@ -1,10 +1,9 @@
 import { nanoid } from 'nanoid'
 import create from 'zustand'
 
+
 const getLocalStorage = (key) => JSON.parse(window.localStorage.getItem(key))
 const setLocalStorage = (key,value) => window.localStorage.setItem(key, JSON.stringify(value))
-const saveToMongo = (world) => fetch();
-const loadFromMongo = (id) => fetch();
 
 export const useStore = create((set) => ({
     texture:'dirt',
@@ -36,7 +35,7 @@ export const useStore = create((set) => ({
     },
     saveWorld: () => {
         set((prev) => {
-            setLocalStorage('lastSave', prev.cubes)
+            return prev.cubes
         })
     },
     resetWorld: () => {
