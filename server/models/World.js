@@ -14,7 +14,7 @@ const worldSchema = new mongoose.Schema({
         required: true,
     },
     lastUpdated: {
-        type: Date
+        type: Date,
     },
     creationDate: {
         type: Date,
