@@ -218,6 +218,23 @@ h4{
 
 }
 #worlds{
-  margin: 1.4rem;
+  margin: 1.3rem;
   font-family: 'Press Start 2P', cursive;
+}
+#time{
+  font-size: 1rem;
+}
+#jumpintoworld{
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 3px 2px;
+  border-radius: 4px;
+  position: absolute;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
 }

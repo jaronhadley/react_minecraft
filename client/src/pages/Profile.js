@@ -46,12 +46,13 @@ const Profile = () => {
         </h2>
         {user.worlds[0] ? (
         <div className="col-12 col-md-10 mb-5" id='worlds' >
-          <Link to="/worlds">Jump into your world ({user.worlds[0].title})</Link><br></br>
-          Last Updated: {user.worlds[0].lastUpdated} <br></br>
-          Created: {user.worlds[0].creationDate}
+          <button id='jumpintoworld'><Link className='text-link'  to="/worlds">Jump into your world {/*({user.worlds[0].title})*/}</Link>
+          </button><br></br><br></br>
+          <p id='time'>Last Updated: {user.worlds[0].lastUpdated} </p>
+          {/* <p id='time'>Created: {user.worlds[0].creationDate}</p> */}
         </div>) : (
           <div id='worlds'> No Worlds Created At This Time 
-            <br></br><br></br><Link className='text-link' to="/worlds">Create your world! </Link>
+            <br></br><br></br><button id='jumpintoworld'><Link className='text-link' to="/worlds">Create your world! </Link></button>
           </div>
         )}
       </div>
