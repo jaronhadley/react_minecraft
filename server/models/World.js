@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const worldSchema = new mongoose.Schema({
     title: {
@@ -15,10 +16,13 @@ const worldSchema = new mongoose.Schema({
     },
     lastUpdated: {
         type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
     },
     creationDate: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
     }
 })
 
